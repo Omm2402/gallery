@@ -34,14 +34,33 @@ function animate() {
 
 function swapPhoto() {
   //Add code here to access the #slideShow element.
+  function swapPhoto(){}
   //Access the img element and replace its source
   //with a new image from your images array which is loaded 
   //from the JSON string
   console.log('swap photo');
 }
 
-document.getElementById{'photo'}.src = 
-location{0}.innerhtml
+
+if(mCurrentIndex) = mImages.length={
+  mCurrentIndex = 0
+}
+
+if(mCurrentIndex) = mImages.length={
+  mCurrentIndex = mImages.length-1
+}
+
+
+document.getElementById('photo').src = mImages(mCurrentIndex).img
+
+var location = document.getElementsByClassName('location');
+loc[0].innerHTML = 'Location'+ mImages[mCurrentIndex].location;
+
+var description = document.getElementsByClassName('description');
+des[0].innerHTML = 'Description'+ mImages[mCurrentIndex].location;
+
+var date = document.getElementsByClassName('date');
+dt[0].innerHTML = 'Date'+ mImages[mCurrentIndex].location;
 
 // Counter for the mImages array
 var mCurrentIndex = 0;
@@ -50,20 +69,22 @@ var mCurrentIndex = 0;
 var mRequest = new XMLHttpRequest();
 
 
-//Part 2 slideshow
-function fetchJSON(){
-mRequest.onreadystatechange = function(){
-    console.log("onReadyStateChange");
-    if(this.readyState = 4 && this.status == 200){
-        mJson = JSON.parse(mRequest.responseText);
+// Part 2 Slideshow 1 and 2
+function fetchJSON() {
+    mRequest.onreadystatechange = function() {
+        console.log("on ready state change");
+        if(this.readyState == 4 && this.status == 200) {
+            mJson = JSON.parse(mRequest.responseText);
+            iterateJSON(mJson);
+        }
     }
+    mRequest.open('GET', mUrl, true);
+    mRequest.send();
+};
 
-}
+fetchJSON()
 
 
-mRequest.open ("GET". mUrl, true);
-mRequest.send();
-}
 
 // Array holding GalleryImage objects (see below).
 var mImages = [];
@@ -100,8 +121,8 @@ window.addEventListener('load', function() {
 
 
 function GalleryImage() {
-  this.location = location;
-  this.description = description;
-  this.date = date;
-  this.img = img;
+  var location
+  var description;
+  var date;
+  var img;
 }
