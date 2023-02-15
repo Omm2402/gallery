@@ -1,4 +1,4 @@
-// requestAnim shim layer by Paul Irish
+ // requestAnim shim layer by Paul Irish
 window.requestAnimFrame = (function() {
   return window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
@@ -42,24 +42,24 @@ function swapPhoto() {
 }
 
 
-if(mCurrentIndex) = mImages.length={
+if(mCurrentIndex  >= mImages.length){
   mCurrentIndex = 0
 }
 
-if(mCurrentIndex) = mImages.length={
+if(mCurrentIndex == 0) {
   mCurrentIndex = mImages.length-1
 }
 
 
 document.getElementById('photo').src = mImages(mCurrentIndex).img
 
-var location = document.getElementsByClassName('location');
+var loc= document.getElementsByClassName('location');
 loc[0].innerHTML = 'Location'+ mImages[mCurrentIndex].location;
 
-var description = document.getElementsByClassName('description');
+var des = document.getElementsByClassName('description');
 des[0].innerHTML = 'Description'+ mImages[mCurrentIndex].location;
 
-var date = document.getElementsByClassName('date');
+var dt = document.getElementsByClassName('date');
 dt[0].innerHTML = 'Date'+ mImages[mCurrentIndex].location;
 
 // Counter for the mImages array
