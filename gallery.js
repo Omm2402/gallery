@@ -50,6 +50,21 @@ if(mCurrentIndex == 0) {
   mCurrentIndex = mImages.length-1
 }
 
+function WhosJason() {
+	mRequest.onreadystatechange = function () {
+		
+		if (this.readyState == 4 && this.status == 200) {
+			
+			mJson = JSON.parse(mRequest.responseText);
+			iterateJSON(mJson);
+		}
+	}
+	mRequest.open("GET", mUrl, true)
+	mRequest.send();
+
+	iterateJSON(mJson);
+}
+
 
 document.getElementById('photo').src = mImages(mCurrentIndex).img
 
@@ -125,4 +140,19 @@ function GalleryImage() {
   var description;
   var date;
   var img;
+}
+
+window.addEventListener('load', function () {
+
+	console.log('window loaded');
+
+}, false);
+
+function showDetails() {
+	if($('.moreIndicator').hasClass("rot90")){
+		$('.moreIndicator').removeClass("rot90").addClass("rot270");
+	} else {
+		$('.moreIndicator').removeClass("rot270").addClass("rot90");
+	}
+	$('.details').eq(0).slideToggle();
 }

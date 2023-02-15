@@ -59,6 +59,7 @@ body {
 #nextPhoto {
 	height: 42px;
 	width: 42px;
+	float: right;
 }
 
 .details p {
@@ -70,6 +71,17 @@ body {
 	margin: 20px 0px;
 }
 
+img.moreIndicator.rot90 {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	
+	
+}
+
+.moreIndicator .rot90 .thumbnail {
+	position: relative;
+}
 /*Add CSS styles to rotate the element 90deg
 Make it animate nicely. You'll need CSS3 for this*/
 .rot90 {}
